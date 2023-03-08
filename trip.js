@@ -9,7 +9,15 @@ const CyclOSM = L.tileLayer(
   }
 );
 
-CyclOSM.addTo(map);
+//CyclOSM.addTo(map);
+
+var osmDE = L.tileLayer("https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png", {
+  maxZoom: 18,
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+});
+
+osmDE.addTo(map);
 
 function onEachFeature(feature, layer) {
   // does this feature have a property named popupContent?
@@ -19,10 +27,9 @@ function onEachFeature(feature, layer) {
 }
 
 var lineStyle = {
-  color: "#ff0000",
+  color: "#ff1900",
   weight: 4,
   title: "Ringticket track",
-  opacity: 0.7,
   dashArray: "7, 14",
 };
 
@@ -34,21 +41,34 @@ $.getJSON("/data/ringtour.geojson", function (data) {
   }).addTo(map);
 });
 
+var customMarker = L.icon({
+  iconUrl: "photomarker.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+
+  iconSize: [43, 42], // size of the icon
+  shadowSize: [50, 64], // size of the shadow
+  iconAnchor: [17, 38], // point of the icon which will correspond to marker's location
+  shadowAnchor: [11, 59], // the same for the shadow
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+});
+
+//L.marker([50.00945, 7.85197], { icon: customMarker }).addTo(map);
+
 $.getJSON("/data/photo_pts.geojson", function (data) {
   L.geoJson(data, {
     pointToLayer: function (feature, latlng) {
       return L.marker(latlng, {
         title: feature.properties.name,
         opacity: 0.9,
+        icon: customMarker,
       }).bindPopup(
         "<img src='/data/" +
           feature.properties.picture +
-          "' height='250' /> <p>" +
+          "' height='550' /> <p>" +
           feature.properties.desc +
           "</p>"
       );
     },
   }).addTo(map);
 });
-
-//.bindPopup(<img src="/data/" + feature.properties.picture /> <p> feature.properties.desc </p> );

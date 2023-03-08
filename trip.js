@@ -18,9 +18,25 @@ function onEachFeature(feature, layer) {
   }
 }
 
+var lineStyle = {
+  color: "#ff0000",
+  weight: 5,
+  opacity: 0.65,
+  dashArray: "10, 20",
+};
+
 $.getJSON("/data/ringtour.geojson", function (data) {
   // add GeoJSON layer to the map once the file is loaded
   L.geoJson(data, {
+    style: lineStyle,
     onEachFeature: onEachFeature,
+  }).addTo(map);
+});
+
+$.getJSON("/data/photo_pts.geojson", function (data) {
+  L.geoJson(data, {
+    pointToLayer: function (feature, latlng) {
+      return L.marker(latlng);
+    },
   }).addTo(map);
 });

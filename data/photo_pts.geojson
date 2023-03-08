@@ -8,83 +8,163 @@
   "features": [
     {
       "type": "Feature",
-      "properties": { "id": 1, "name": "hotel" },
+      "properties": {
+        "id": 1,
+        "name": "hotel",
+        "picture": "hotel.JPG",
+        "desc": "View from our room at the Burg Reichenstein, Trechtingshausen"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.85314, 50.0063]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 2, "name": "tower" },
+      "properties": {
+        "id": 2,
+        "name": "tower",
+        "picture": "tower.JPG",
+        "desc": "Going up the steps to the castle's watch tower"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.85293, 50.00602]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 3, "name": "castle" },
+      "properties": {
+        "id": 3,
+        "name": "castle grounds",
+        "picture": "castle.JPG",
+        "desc": "Castle grounds on a beautiful summer's day"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.85346, 50.00512]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 4, "name": "train" },
+      "properties": {
+        "id": 4,
+        "name": "town marker",
+        "picture": "train.jpg",
+        "desc": "Municipality marker adorned with roses"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.85197, 50.00945]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 5, "name": "port" },
+      "properties": {
+        "id": 5,
+        "name": "Ringticket tour starts here",
+        "picture": "port.jpg",
+        "desc": "Beautiful map by the dock"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.89648, 49.97017]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 6, "name": "cruise1" },
+      "properties": {
+        "id": 6,
+        "name": "cruise view",
+        "picture": "cruise1.png",
+        "desc": "Enjoying the cruise and river views"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.90575, 49.97274]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 7, "name": "cablecar" },
+      "properties": {
+        "id": 7,
+        "name": "cable car ride",
+        "picture": "cablecar.jpg",
+        "desc": "Vineyards and the Rhine River"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.91024, 49.98155]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 8, "name": "statue_views" },
+      "properties": {
+        "id": 8,
+        "name": "Niederwald",
+        "picture": "statue_views.JPG",
+        "desc": "View from atop the Niederwald"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.9007, 49.98107]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 9, "name": "statue" },
+      "properties": {
+        "id": 9,
+        "name": "Niederwald Monument",
+        "picture": "statue.JPG",
+        "desc": "The 38-meter tall Niederwald Monument"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.90016, 49.98113]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 10, "name": "forest" },
+      "properties": {
+        "id": 10,
+        "name": "forest walk",
+        "picture": "forest.JPG",
+        "desc": "A 3.5-kilometer hike through paths, perfectly shaded on a hot day"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.89648, 49.98124]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 11, "name": "dierentuin" },
+      "properties": {
+        "id": 11,
+        "name": "surprise dierentuin",
+        "picture": "dierentuin.JPG",
+        "desc": "A surprise along the way"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.88182, 49.98572]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 12, "name": "chairlift1" },
+      "properties": {
+        "id": 12,
+        "name": "chair lift",
+        "picture": "chairlift1.jpg",
+        "desc": "By the end of our walk is a chair lift, or descent, toward Assmannshausen"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.87969, 49.98656]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 13, "name": "chairlift2" },
+      "properties": {
+        "id": 13,
+        "name": "chair lift going down",
+        "picture": "chairlift2.jpg",
+        "desc": "Breathtaking view, spot the Burg Rheinstein across the Rhine River"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.8731, 49.98761]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 14, "name": "cruise2" },
+      "properties": {
+        "id": 14,
+        "name": "cruise view",
+        "picture": "cruise2.png",
+        "desc": "A longer cruise back to the dock of origin"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.86956, 49.97795]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 15, "name": "assmannshausen" },
+      "properties": {
+        "id": 15,
+        "name": "street of Assmannshausen",
+        "picture": "assmannshausen.JPG",
+        "desc": "Walking down the street"
+      },
       "geometry": { "type": "MultiPoint", "coordinates": [[7.86669, 49.98786]] }
     },
     {
       "type": "Feature",
-      "properties": { "id": 16, "name": "tower2" },
-      "geometry": { "type": "MultiPoint", "coordinates": [[7.85375, 50.00498]] }
+      "properties": {
+        "id": 16,
+        "name": "top of the world",
+        "picture": "tower2.JPG",
+        "desc": "Top tower views"
+      },
+      "geometry": { "type": "MultiPoint", "coordinates": [[7.85282, 50.00613]] }
     }
   ]
 }

@@ -20,9 +20,10 @@ function onEachFeature(feature, layer) {
 
 var lineStyle = {
   color: "#ff0000",
-  weight: 5,
-  opacity: 0.65,
-  dashArray: "10, 20",
+  weight: 4,
+  title: "Ringticket track",
+  opacity: 0.7,
+  dashArray: "7, 14",
 };
 
 $.getJSON("/data/ringtour.geojson", function (data) {
@@ -36,7 +37,18 @@ $.getJSON("/data/ringtour.geojson", function (data) {
 $.getJSON("/data/photo_pts.geojson", function (data) {
   L.geoJson(data, {
     pointToLayer: function (feature, latlng) {
-      return L.marker(latlng);
+      return L.marker(latlng, {
+        title: feature.properties.name,
+        opacity: 0.9,
+      }).bindPopup(
+        "<img src='/data/" +
+          feature.properties.picture +
+          "' height='250' /> <p>" +
+          feature.properties.desc +
+          "</p>"
+      );
     },
   }).addTo(map);
 });
+
+//.bindPopup(<img src="/data/" + feature.properties.picture /> <p> feature.properties.desc </p> );

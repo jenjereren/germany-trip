@@ -9,7 +9,8 @@
     {
       "type": "Feature",
       "properties": {
-        "popupContent": "This is our Ring Ticket track in August 2022. It includes river crossing, a cable car ride, chair lift, and a walk in the forest. Bought tickets from here: https://www.bingen-ruedesheimer.de/"
+        "name": "Ringticket track",
+        "popupContent": "This is our Ringticket track in August 2022. It includes river crossing, cable car ride, chair lift, and a walk in the forest. Bought tickets from here: https://www.bingen-ruedesheimer.de/"
       },
       "geometry": {
         "type": "MultiLineString",

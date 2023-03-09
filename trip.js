@@ -95,7 +95,7 @@ $.getJSON("/data/photo_pts.geojson", function (data) {
         .bindPopup(
           "<img src='/data/" +
             feature.properties.picture +
-            "' height='500' /> <p>" +
+            "' height='400' /> <p>" +
             feature.properties.desc +
             "</p>"
         )

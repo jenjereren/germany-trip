@@ -1,12 +1,45 @@
-const map = L.map("map").setView([49.986, 7.9], 13);
-
 var osmDE = L.tileLayer("https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png", {
   maxZoom: 18,
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 });
 
-osmDE.addTo(map);
+var stadiadark = L.tileLayer(
+  "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+  {
+    maxZoom: 20,
+    attribution:
+      '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+  }
+);
+
+var stamentoner = L.tileLayer(
+  "https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}",
+  {
+    attribution:
+      'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    subdomains: "abcd",
+    minZoom: 0,
+    maxZoom: 20,
+    ext: "png",
+  }
+);
+
+var map = L.map("map", {
+  center: [49.986, 7.9],
+  zoom: 13,
+  layers: [osmDE, stadiadark, stamentoner],
+});
+
+var baseMaps = {
+  "Stamen Toner Lite": stamentoner,
+  "OpenStreetMap DE": osmDE,
+  "Stadia Alidade Smooth Dark": stadiadark,
+};
+
+var overlays = {};
+
+var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
 
 function onEachFeature(feature, layer) {
   // does this feature have a property named popupContent?
@@ -40,8 +73,6 @@ var customMarker = L.icon({
   shadowAnchor: [11, 59], // the same for the shadow
   popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
 });
-
-//L.marker([50.00945, 7.85197], { icon: customMarker }).addTo(map);
 
 $.getJSON("/data/photo_pts.geojson", function (data) {
   L.geoJson(data, {

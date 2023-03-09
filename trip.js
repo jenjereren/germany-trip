@@ -1,3 +1,4 @@
+// basemaps of choice, no access tokens needed :)
 var osmDE = L.tileLayer("https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png", {
   maxZoom: 18,
   attribution:
@@ -7,7 +8,7 @@ var osmDE = L.tileLayer("https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png", {
 var stadiadark = L.tileLayer(
   "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
   {
-    maxZoom: 20,
+    maxZoom: 18,
     attribution:
       '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
   }
@@ -19,27 +20,33 @@ var stamentoner = L.tileLayer(
     attribution:
       'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     subdomains: "abcd",
-    minZoom: 0,
-    maxZoom: 20,
+    maxZoom: 18,
     ext: "png",
   }
 );
 
+// basemap labels
+var baseMaps = {
+  "Stadia Alidade Smooth Dark": stadiadark,
+  "Stamen Toner Lite": stamentoner,
+  "OpenStreetMap DE": osmDE,
+};
+
+// declare map with center and initial zoom level
 var map = L.map("map", {
   center: [49.986, 7.9],
   zoom: 13,
-  layers: [osmDE, stadiadark, stamentoner],
 });
 
-var baseMaps = {
-  "Stamen Toner Lite": stamentoner,
-  "OpenStreetMap DE": osmDE,
-  "Stadia Alidade Smooth Dark": stadiadark,
-};
-
+// data layers
 var overlays = {};
 
+// place basemaps and overlays in control checklist
 var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
+
+stadiadark.addTo(map); // set as default basemap
+
+// display ringticket track
 
 function onEachFeature(feature, layer) {
   // does this feature have a property named popupContent?
@@ -62,6 +69,7 @@ $.getJSON("/data/ringtour.geojson", function (data) {
   }).addTo(map);
 });
 
+// change the default blue pin to a custom marker
 var customMarker = L.icon({
   iconUrl: "photomarker.png",
   shadowUrl:
@@ -73,6 +81,8 @@ var customMarker = L.icon({
   shadowAnchor: [11, 59], // the same for the shadow
   popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
 });
+
+// display pins with popup photos
 
 $.getJSON("/data/photo_pts.geojson", function (data) {
   L.geoJson(data, {

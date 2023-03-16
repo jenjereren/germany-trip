@@ -50,13 +50,6 @@ stadiadark.addTo(map); // set as default basemap
 
 let ringtrack = L.layerGroup().addTo(map);
 
-function onEachFeature(feature, layer) {
-  // does this feature have a property named popupContent?
-  if (feature.properties && feature.properties.popupContent) {
-    layer.bindPopup(feature.properties.popupContent);
-  }
-}
-
 function addMyData(feature, layer) {
   ringtrack.addLayer(layer);
   if (feature.properties && feature.properties.popupContent) {

@@ -46,10 +46,19 @@ var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
 
 stadiadark.addTo(map); // set as default basemap
 
-// display ringticket track
+// display ringticket track geojson
+
+let ringtrack = L.layerGroup().addTo(map);
 
 function onEachFeature(feature, layer) {
   // does this feature have a property named popupContent?
+  if (feature.properties && feature.properties.popupContent) {
+    layer.bindPopup(feature.properties.popupContent);
+  }
+}
+
+function addMyData(feature, layer) {
+  ringtrack.addLayer(layer);
   if (feature.properties && feature.properties.popupContent) {
     layer.bindPopup(feature.properties.popupContent);
   }
@@ -65,9 +74,11 @@ $.getJSON("/data/ringtour.geojson", function (data) {
   // add GeoJSON layer to the map once the file is loaded
   L.geoJson(data, {
     style: lineStyle,
-    onEachFeature: onEachFeature,
+    onEachFeature: addMyData,
   }).addTo(map);
 });
+
+layerControl.addOverlay(ringtrack, "Ringticket track");
 
 // change the default blue pin to a custom marker
 var customMarker = L.icon({

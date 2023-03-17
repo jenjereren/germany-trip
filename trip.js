@@ -46,13 +46,15 @@ var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
 
 stadiadark.addTo(map); // set as default basemap
 
-// display ringticket track geojson
+// display geojson
 
 let ringtrack = L.layerGroup().addTo(map);
 
+let photopts = L.layerGroup().addTo(map);
+
 function addMyData(feature, layer) {
-  ringtrack.addLayer(layer);
   if (feature.properties && feature.properties.popupContent) {
+    ringtrack.addLayer(layer);
     layer.bindPopup(feature.properties.popupContent);
   }
 }
@@ -68,7 +70,7 @@ $.getJSON("/data/ringtour.geojson", function (data) {
   L.geoJson(data, {
     style: lineStyle,
     onEachFeature: addMyData,
-  }).addTo(map);
+  }); //.addTo(map);
 });
 
 layerControl.addOverlay(ringtrack, "Ringticket track");
@@ -99,11 +101,13 @@ $.getJSON("/data/photo_pts.geojson", function (data) {
         .bindPopup(
           "<img src='/data/" +
             feature.properties.picture +
-            "' height='400' /> <p>" +
+            "' height='450' /> <p>" +
             feature.properties.desc +
             "</p>"
         )
         .openPopup();
     },
-  }).addTo(map);
+  }).addTo(photopts);
 });
+
+layerControl.addOverlay(photopts, "Photo points");

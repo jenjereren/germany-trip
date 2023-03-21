@@ -110,4 +110,23 @@ $.getJSON("/data/photo_pts.geojson", function (data) {
   }).addTo(photopts);
 });
 
+// display train stations of interest
+
+let trains = L.layerGroup().addTo(map);
+
+$.getJSON("/data/train_stations.geojson", function (data) {
+  L.geoJson(data, {
+    pointToLayer: function (feature, latlng) {
+      return L.marker(latlng, {
+        title: feature.properties.name,
+        opacity: 0.9,
+        icon: customMarker,
+      })
+        .bindPopup(feature.properties.desc)
+        .openPopup();
+    },
+  }).addTo(trains);
+});
+
 layerControl.addOverlay(photopts, "Photo points");
+layerControl.addOverlay(trains, "Train stations");

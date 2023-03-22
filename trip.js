@@ -88,6 +88,17 @@ var customMarker = L.icon({
   popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
 });
 
+var trainMarker = L.icon({
+  iconUrl: "trainmarker.png",
+  //shadowUrl:
+  // "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+
+  iconSize: [37, 40], // size of the icon
+  //shadowSize: [50, 64], // size of the shadow
+  iconAnchor: [17, 38], // point of the icon which will correspond to marker's location
+  //shadowAnchor: [11, 59], // the same for the shadow
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+});
 // display pins with popup photos
 
 $.getJSON("/data/photo_pts.geojson", function (data) {
@@ -120,7 +131,7 @@ $.getJSON("/data/train_stations.geojson", function (data) {
       return L.marker(latlng, {
         title: feature.properties.name,
         opacity: 0.9,
-        icon: customMarker,
+        icon: trainMarker,
       })
         .bindPopup(feature.properties.desc)
         .openPopup();

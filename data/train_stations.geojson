@@ -11,7 +11,7 @@
       "properties": {
         "id": 1,
         "name": "Trechtingshausen",
-        "desc": "This is the stop for Burg Reichenstein where we stayed at."
+        "desc": "This is the Trechtingshausen stop for Burg Reichenstein where we stayed at. From Cologne, we took the RB26 regional train. Travel took 2,5 hours."
       },
       "geometry": { "type": "Point", "coordinates": [7.85195, 50.00959] }
     },
@@ -20,7 +20,7 @@
       "properties": {
         "id": 2,
         "name": "Bingen Hauptbahnhof",
-        "desc": "This is the first stop for Bingen."
+        "desc": "This is the first stop for Bingen from Trechtingshausen. The dock is a short walking distance from here but the next stop is more convenient."
       },
       "geometry": { "type": "Point", "coordinates": [7.88348, 49.96868] }
     },

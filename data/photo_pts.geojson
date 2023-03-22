@@ -39,16 +39,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 4,
-        "name": "town marker",
-        "picture": "train.jpg",
-        "desc": "Municipality marker adorned with roses by the train station"
-      },
-      "geometry": { "type": "MultiPoint", "coordinates": [[7.85197, 50.00945]] }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": 5,
         "name": "Ringticket tour starts here",
         "picture": "port.jpg",

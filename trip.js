@@ -93,7 +93,7 @@ var trainMarker = L.icon({
   //shadowUrl:
   // "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
 
-  iconSize: [37, 40], // size of the icon
+  iconSize: [37, 36], // size of the icon
   //shadowSize: [50, 64], // size of the shadow
   iconAnchor: [17, 38], // point of the icon which will correspond to marker's location
   //shadowAnchor: [11, 59], // the same for the shadow

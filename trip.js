@@ -27,9 +27,9 @@ var stamentoner = L.tileLayer(
 
 // basemap labels
 var baseMaps = {
-  "Stadia Alidade Smooth Dark": stadiadark,
-  "Stamen Toner Lite": stamentoner,
   "OpenStreetMap DE": osmDE,
+  "Stamen Toner Lite": stamentoner,
+  "Stadia Alidade Smooth Dark": stadiadark,
 };
 
 // declare map with center and initial zoom level
@@ -44,7 +44,7 @@ var overlays = {};
 // place basemaps and overlays in control checklist
 var layerControl = L.control.layers(baseMaps, overlays).addTo(map);
 
-stadiadark.addTo(map); // set as default basemap
+osmDE.addTo(map); // set as default basemap
 
 // display geojson
 
